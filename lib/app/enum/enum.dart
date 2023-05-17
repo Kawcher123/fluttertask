@@ -1,0 +1,2 @@
+
+enum ReturnedStatus { success, error }
