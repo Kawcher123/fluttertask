@@ -53,9 +53,8 @@ class CompanyRepository {
       var result = await _apiManager
           .postApiCall(url: ApiUrl.addCompanyUrl, param: jsonEncode(company.toJson()), headerData: {'Content-Type': 'application/json'});
 
-
       if (result.containsKey("status_code")) {
-        if (result["status_code"].toString()=='1') {
+        if (result["status_code"].toString() == '1') {
           print('CompanyRepository.addCompany:${result}');
           returnedDataModel.status = ReturnedStatus.success;
         }

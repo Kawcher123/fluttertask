@@ -44,14 +44,15 @@ class HomeView extends GetView<HomeController> {
                   ),
                   onRefresh: controller.getCompanyListWithPageNo,
                   trigger: IndicatorTrigger.trailingEdge,
-                  child: SingleChildScrollView(
+                  child:controller.companyList.isNotEmpty? SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Column(
                       children: List.generate(controller.companyList.length, (index) {
                         return  CompanyItemWidget(companyModel:controller.companyList[index] ,);
                       }),
                     ),
-                  ),
+                  ):
+                  const Center(child: Text('No Data Found',style: TextStyle(color: textPrimaryColor),)),
                 );
               }
 
